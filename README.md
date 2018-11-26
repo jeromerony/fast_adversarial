@@ -30,12 +30,12 @@ The following commands were used to adversarially train the models:
 
 MNIST:
 ```
-python fast_adv/defenses/mnist.py --lr=0.01 --lrs=30 --adv=0 --max-norm=2.4 --sn=mnist_adv_2.4
+python -m fast_adv.defenses.mnist --lr=0.01 --lrs=30 --adv=0 --max-norm=2.4 --sn=mnist_adv_2.4
 ```
 
 CIFAR-10 (adversarial training starts at epoch 200):
 ```
-python fast_adv/defenses/cifar10.py -e=230 --adv=200 --max-norm=1 --sn=cifar10_wrn28-10_adv_1
+python -m fast_adv.defenses.cifar10 -e=230 --adv=200 --max-norm=1 --sn=cifar10_wrn28-10_adv_1
 ```
 
 ### Adversarially trained models 
