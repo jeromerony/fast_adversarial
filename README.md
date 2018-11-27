@@ -22,7 +22,7 @@ adv = attacker.attack(model, x, labels=y, targeted=False)
  
 Where ```model``` is a pytorch ``nn.Module`` that takes inputs ```x``` and outputs the pre-softmax activations (logits), ```x``` is a batch of images (N x C x H x W) and ```labels``` are either the true labels (for ```targeted=False```) or the target labels (for ```targeted=True```). Note: ```x``` is expected to be on the [0, 1] range: you can use ```fast_adv.utils.NormalizedModel``` to wrap any normalization, such as mean subtraction.
 
-See the "examples" folder for a [python](https://github.com/jeromerony/fast_adversarial/blob/master/examples/mnist_example.py) and a [jupyter notebook](https://github.com/jeromerony/fast_adversarial/blob/master/examples/mnist_noteboook_example.ipynb) example
+See the "examples" folder for a [python](https://github.com/jeromerony/fast_adversarial/blob/master/examples/mnist_example.py) and a [jupyter notebook](http://nbviewer.jupyter.org/github/jeromerony/fast_adversarial/blob/master/examples/mnist_noteboook_example.ipynb) example
 
 ## Adversarial training with DDN
 
