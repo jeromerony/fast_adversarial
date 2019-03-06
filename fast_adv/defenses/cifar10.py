@@ -1,6 +1,7 @@
 import os
 import argparse
 import tqdm
+from copy import deepcopy
 
 import torch
 import torch.nn.functional as F
@@ -159,7 +160,7 @@ for epoch in range(args.epochs):
     if args.adv is None and val_accs.avg >= best_acc:
         best_acc = val_accs.avg
         best_epoch = epoch
-        best_dict = model.state_dict()
+        best_dict = deepcopy(model.state_dict())
 
     if not (epoch + 1) % args.save_freq:
         save_checkpoint(

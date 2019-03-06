@@ -1,6 +1,7 @@
 import os
 import argparse
 import tqdm
+from copy import deepcopy
 
 import torch
 import torch.nn.functional as F
@@ -128,7 +129,7 @@ for epoch in range(args.epochs):
 
     if val_accs.avg >= best_acc:
         best_acc = val_accs.avg
-        best_dict = model.state_dict()
+        best_dict = deepcopy(model.state_dict())
         best_epoch = epoch
 
 model.load_state_dict(best_dict)
