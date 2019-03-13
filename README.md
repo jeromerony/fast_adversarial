@@ -1,6 +1,6 @@
 ## About
 
-Code for the article "Decoupling Direction and Norm for Efficient Gradient-Based L2 Adversarial Attacks and Defenses" (https://arxiv.org/abs/1811.09600). 
+Code for the article "Decoupling Direction and Norm for Efficient Gradient-Based L2 Adversarial Attacks and Defenses" (https://arxiv.org/abs/1811.09600), to be presented at CVPR 2019 (Oral presentation)
 
 
 Implementation is done in PyTorch 0.4.1 and runs with Python 3.6+. The code of the attack is also provided on TensorFlow. This repository also contains an implementation of the C&W L2 attack in PyTorch (ported from Carlini's [TF version](https://github.com/carlini/nn_robust_attacks/blob/master/l2_attack.py))
