@@ -64,12 +64,12 @@ if __name__ == '__main__':
     print('Predictions on DDN attack: {}'.format(pred_ddn))
     print('C&W done in {:.1f}s: Success: {:.2f}%, Mean L2: {:.4f}.'.format(
         cw_time,
-        (pred_cw != pred_orig).float().mean().item() * 100,
+        (pred_cw != y.cpu()).float().mean().item() * 100,
         l2_norm(cw_atk - x).mean().item()
     ))
     print('DDN done in {:.1f}s: Success: {:.2f}%, Mean L2: {:.4f}.'.format(
         ddn_time,
-        (pred_ddn != pred_orig).float().mean().item() * 100,
+        (pred_ddn != y.cpu()).float().mean().item() * 100,
         l2_norm(ddn_atk - x).mean().item()
     ))
 
