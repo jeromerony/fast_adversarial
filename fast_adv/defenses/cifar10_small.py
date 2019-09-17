@@ -80,7 +80,6 @@ best_acc = 0
 best_epoch = 0
 
 for epoch in range(args.epochs):
-    scheduler.step()
     cudnn.benchmark = True
     model.train()
     accs = AverageMeter()
@@ -104,6 +103,7 @@ for epoch in range(args.epochs):
             CALLBACK.scalar('Tr_Loss', epoch + i / length, min(losses.last_avg, max_loss))
             CALLBACK.scalar('Tr_Acc', epoch + i / length, accs.last_avg)
 
+    scheduler.step()
     print('Epoch {} | Training | Loss: {:.4f}, Accs: {:.4f}'.format(epoch, losses.avg, accs.avg))
 
     cudnn.benchmark = False

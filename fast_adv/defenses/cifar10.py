@@ -92,7 +92,6 @@ best_acc = 0
 best_epoch = 0
 
 for epoch in range(args.epochs):
-    scheduler.step()
     cudnn.benchmark = True
     model.train()
     requires_grad_(m, True)
@@ -133,6 +132,7 @@ for epoch in range(args.epochs):
             if args.adv is not None and epoch >= args.adv:
                 CALLBACK.scalar('L2', epoch + i / length, attack_norms.last_avg)
 
+    scheduler.step()
     print('Epoch {} | Training | Loss: {:.4f}, Accs: {:.4f}'.format(epoch, losses.avg, accs.avg))
 
     cudnn.benchmark = False

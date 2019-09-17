@@ -89,7 +89,6 @@ class DDN:
         adv_found = torch.zeros(inputs.size(0), dtype=torch.uint8, device=self.device)
 
         for i in range(self.steps):
-            scheduler.step()
 
             l2 = delta.data.view(batch_size, -1).norm(p=2, dim=1)
             adv = inputs + delta
@@ -127,6 +126,7 @@ class DDN:
                                       [cosine, optimizer.param_groups[0]['lr'], adv_found.float().mean().item()])
 
             optimizer.step()
+            scheduler.step()
 
             norm.mul_(1 - (2 * is_adv.float() - 1) * self.gamma)
             norm = torch.min(norm, worst_norm)

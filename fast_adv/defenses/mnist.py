@@ -83,7 +83,6 @@ for epoch in range(args.epochs):
     losses = AverageMeter()
     attack_norms = AverageMeter()
 
-    scheduler.step()
     length = len(train_loader)
     for i, (images, labels) in enumerate(tqdm.tqdm(train_loader, ncols=80)):
         images, labels = images.to(DEVICE), labels.to(DEVICE)
@@ -119,6 +118,7 @@ for epoch in range(args.epochs):
             if args.adv is not None and epoch >= args.adv:
                 CALLBACK.scalar('L2', epoch + i / length, attack_norms.last_avg)
 
+    scheduler.step()
     print('Epoch {} | Training | Loss: {:.4f}, Accs: {:.4f}'.format(epoch, losses.avg, accs.avg))
 
     cudnn.benchmark = False
