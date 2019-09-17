@@ -5,6 +5,8 @@ Code for the article "Decoupling Direction and Norm for Efficient Gradient-Based
 
 Implementation is done in PyTorch 0.4.1 and runs with Python 3.6+. The code of the attack is also provided on TensorFlow. This repository also contains an implementation of the C&W L2 attack in PyTorch (ported from Carlini's [TF version](https://github.com/carlini/nn_robust_attacks/blob/master/l2_attack.py))
 
+For PyTorch 1.1+, check the pytorch1.1+ branch (`scheduler.step()` moved).
+
 ## Installation
 
 This package can be installed via pip as follows:
