@@ -86,7 +86,7 @@ class DDN:
 
         best_l2 = worst_norm.clone()
         best_delta = torch.zeros_like(inputs)
-        adv_found = torch.zeros(inputs.size(0), dtype=torch.uint8, device=self.device)
+        adv_found = torch.zeros(inputs.size(0), dtype=torch.bool, device=self.device)
 
         for i in range(self.steps):
 
@@ -100,7 +100,7 @@ class DDN:
             is_adv = (pred_labels == labels) if targeted else (pred_labels != labels)
             is_smaller = l2 < best_l2
             is_both = is_adv * is_smaller
-            adv_found[is_both] = 1
+            adv_found[is_both] = True
             best_l2[is_both] = l2[is_both]
             best_delta[is_both] = delta.data[is_both]
 
